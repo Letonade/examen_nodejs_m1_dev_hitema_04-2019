@@ -5,8 +5,18 @@ const PeopleService = require('./people-service');
 const peopleService = new PeopleService();
 const app = express();
 const v1 = express.Router();
+// To be implemented!
 
 app.use('/api/v1', v1);
+/*
+v1.get('/people', async (request, response) => {
+    try {
+        const people = await peopleService.getPeople();
+        response.send(people);
+    } catch (error) {
+        response.sendStatus(HttpStatus.NOT_FOUND).end(error);
+    }
+});*/
 
 v1.get('/people',  (request, response) => {
     const filter = request.query;

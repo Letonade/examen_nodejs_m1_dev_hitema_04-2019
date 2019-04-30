@@ -6,11 +6,11 @@ module.exports = class PeopleService {
     }
 
     updatePeople(id, people) {
-
+        const nop = -1;
         const peopleIndex = this.peoples.findIndex(
             people => people.id === id
         );
-        if(peopleIndex === -1)return Promise.reject('invalide id');
+        if(peopleIndex === nop)return Promise.reject('invalide id');
 
         this.peoples[peopleIndex] = people;
         return {isModified: true};
@@ -18,17 +18,19 @@ module.exports = class PeopleService {
     
     getPeople(filters) {
         // To be implemented!
+        const nol = 0;
         console.log(Object.keys(filters).length);
-        if(Object.keys(filters).length === 0)
+        if(Object.keys(filters).length === nol)
         {
             return this.peoples;
         }
         else
         {
-            console.log('TEST');
+            console.log('TEST1');
             const peopleIndex = this.peoples.filter(
-                people => people[Object.keys(filters)[0]]===filter[Object.keys(filters)[0]]
+                people => people[Object.keys(filters)[0]]===filters[Object.keys(filters)[0]]
             );
+            console.log('TEST2');
             return peopleIndex;
         }
     }
