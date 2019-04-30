@@ -7,9 +7,15 @@ module.exports = class PeopleService {
 
     updatePeople(id, people) {
         // To be implemented!
+        return id+people;
     }
     
     getPeople(filters) {
-        // To be implemented!
+        console.log(filters)
+        if (filters) {
+            return filters
+        }else{
+            return this.peoples;
+        }
     }
 }
