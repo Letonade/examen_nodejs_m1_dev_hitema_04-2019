@@ -6,7 +6,6 @@ module.exports = class PeopleService {
     }
 
     updatePeople(id, people) {
-        // To be implemented!
         return id+people;
     }
     
