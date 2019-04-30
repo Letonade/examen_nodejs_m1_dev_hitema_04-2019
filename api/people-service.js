@@ -6,15 +6,30 @@ module.exports = class PeopleService {
     }
 
     updatePeople(id, people) {
-        return id+people;
+
+        const peopleIndex = this.peoples.findIndex(
+            people => people.id === id
+        );
+        if(peopleIndex === -1)return Promise.reject('invalide id');
+
+        this.peoples[peopleIndex] = people;
+        return {isModified: true};
     }
     
     getPeople(filters) {
-        console.log(filters)
-        if (filters) {
-            return filters
-        }else{
+        // To be implemented!
+        console.log(Object.keys(filters).length);
+        if(Object.keys(filters).length === 0)
+        {
             return this.peoples;
+        }
+        else
+        {
+            console.log('TEST');
+            const peopleIndex = this.peoples.filter(
+                people => people[Object.keys(filters)[0]]===filter[Object.keys(filters)[0]]
+            );
+            return peopleIndex;
         }
     }
 }
